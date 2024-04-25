@@ -59,6 +59,59 @@ You'll also need a MongoDB database to store user data. Follow these steps to se
 2. Create a new cluster and follow the instructions to configure it.
 3. Once your cluster is set up, create a new database and note down its connection string.
 
+## Environment Variables Setup in VSCode
+
+To set up environment variables within VSCode, follow these steps:
+
+1. **Create a `.env` file**: 
+   - In the file explorer sidebar of VSCode, right-click on the root directory of your project.
+   - Choose "New File" and name it `.env`.
+
+2. **Add Environment Variables**:
+   - Open the `.env` file.
+   - Add the following environment variables:
+
+    ```plaintext
+    # MongoDB Connection String
+    MONGO_URI=your_mongodb_connection_string_here
+
+    # Ethereal Email Account
+    ETHEREAL_EMAIL=your_ethereal_email_address_here
+    ETHEREAL_PASSWORD=your_ethereal_password_here
+
+    # Secret for JWT
+    SECRET=your_secret_here
+
+    # Port number
+    PORT=3000
+    ```
+
+    Replace `your_mongodb_connection_string_here` with your MongoDB Atlas connection string, `your_ethereal_email_address_here` and `your_ethereal_password_here` with the credentials of your Ethereal email account, `your_secret_here` with your JWT secret, and `3000` with the desired port number.
+
+3. **Save the `.env` file**.
+
+## Adding a `.gitignore` File in VSCode
+
+To add a `.gitignore` file directly within VSCode, follow these steps:
+
+1. **Create a `.gitignore` file**:
+   - In the file explorer sidebar of VSCode, right-click on the root directory of your project.
+   - Choose "New File" and name it `.gitignore`.
+
+2. **Specify Files to Ignore**:
+   - Open the `.gitignore` file.
+   - Add the following line to ignore the `.env` file:
+
+    ```plaintext
+    # Ignore .env file
+    .env
+    ```
+
+3. **Save the `.gitignore` file**.
+
+By following these steps, you'll set up environment variables securely within VSCode and ensure that sensitive information is not exposed in your version control system.
+
+
 ## Code Breakdown
 
 The key files and their functionalities in the project are as follows:
