@@ -132,7 +132,6 @@ userSchema.methods.withoutSensitiveInfo = function() {
     return user;
 };
 
-
 // Send confirmation email using Nodemailer with Ethereal transport
 async function sendConfirmationEmail(email, token) {
     try {
@@ -193,7 +192,6 @@ async function sendConfirmationEmail(email, token) {
                 </html>
             `
         };
-        
 
         // Send mail
         const info = await transporter.sendMail(mailOptions);

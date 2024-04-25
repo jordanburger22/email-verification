@@ -1,8 +1,9 @@
-const express = require('express')
-const authRouter = express.Router()
-const User = require('../models/user')
-const jwt = require('jsonwebtoken')
+const express = require('express');
+const authRouter = express.Router();
+const User = require('../models/user');
+const jwt = require('jsonwebtoken');
 
+// User signup route
 authRouter.post('/signup', async (req, res, next) => {
     try {
         // Check if the email already exists
@@ -49,8 +50,7 @@ authRouter.post('/signup', async (req, res, next) => {
     }
 });
 
-
-
+// User login route
 authRouter.post('/login', async (req, res, next) => {
     try {
         const userCheck = await User.findOne({ email: req.body.email })
@@ -76,8 +76,9 @@ authRouter.post('/login', async (req, res, next) => {
         res.status(500)
         return next(err)
     }
-})
+});
 
+// Confirm email route
 authRouter.get('/confirm-email/:token', async (req, res) => {
     try {
         const token = req.params.token;
@@ -85,6 +86,7 @@ authRouter.get('/confirm-email/:token', async (req, res) => {
             return res.status(400).send('Token is missing.');
         }
 
+        // Verify the token
         const decodedToken = jwt.verify(token, process.env.EMAIL_CONFIRM_SECRET);
         const user = await User.findOne({ email: decodedToken.email });
 
@@ -103,6 +105,7 @@ authRouter.get('/confirm-email/:token', async (req, res) => {
     }
 });
 
+// Update user information for first time login
 authRouter.put('/setup/:userId', async(req, res, next) => {
     try {
         console.log(req.body)
@@ -117,8 +120,6 @@ authRouter.put('/setup/:userId', async(req, res, next) => {
         res.status(500)
         return next(err)
     }
-})
+});
 
-
-
-module.exports = authRouter
+module.exports = authRouter;
