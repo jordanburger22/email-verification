@@ -83,7 +83,7 @@ To set up environment variables within VSCode, follow these steps:
     SECRET=your_secret_here
 
     # Port number
-    PORT=3000
+    PORT= your_port_number
     ```
 
     Replace `your_mongodb_connection_string_here` with your MongoDB Atlas connection string, `your_ethereal_email_address_here` and `your_ethereal_password_here` with the credentials of your Ethereal email account, `your_secret_here` with your JWT secret, and `3000` with the desired port number.
